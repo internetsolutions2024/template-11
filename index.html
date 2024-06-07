@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" href="favicon.ico">
+   <title>Example-11</title>
+</head>
+
+<body>
+   <style>
+      :root {
+         --mycolor1: #0188dd;
+         --mycolor2: #00e5ff;
+      }
+
+      body {
+         background-color: #efefef;
+      }
+
+      .main {
+         overflow: hidden;
+         max-width: 900px;
+         margin: 0 auto;
+         background-color: #fff;
+      }
+
+      .sil-button {
+         display: inline-block;
+         padding: 15px 25px;
+         margin: 25px 0 0 0;
+         border-radius: 10px;
+         background-color: var(--mycolor1);
+         color: #fff !important;
+         text-decoration: none;
+         text-align: center;
+         transition: .3s;
+         position: relative;
+         z-index: 0;
+         overflow: hidden;
+         box-sizing: border-box;
+      }
+
+      .sil-button::after {
+         position: absolute;
+         content: '';
+         top: 20px;
+         left: 50%;
+         width: 1px;
+         height: 1px;
+         background-color: #0791e7;
+         z-index: -1;
+         transition: .3s;
+         border-radius: 15px;
+      }
+
+      .sil-button:hover::after {
+         width: 100%;
+         height: 100%;
+         top: 0;
+         left: 0;
+         transition: .3;
+      }
+
+      .sil-title {
+         font-size: 28px !important;
+         margin: 20px 0 !important;
+         text-align: center;
+      }
+
+      @media screen and (max-width: 500px) {
+         .sil-title {
+            font-size: 24px !important;
+            margin: 20px 0 !important;
+            text-align: center;
+         }
+      }
+
+      .sil-title span {
+         color: var(--mycolor1);
+      }
+
+
+      /*--------introduction-------*/
+
+      .introduction {
+         position: relative;
+         z-index: 0;
+      }
+
+      .introduction::after {
+         position: absolute;
+         content: '';
+         bottom: 0;
+         left: 20%;
+         background-color: var(--mycolor1);
+         height: 30%;
+         width: 80%;
+         z-index: -1;
+      }
+
+      .introduction__body {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+         margin: 0 -10px;
+         align-items: center;
+         padding-bottom: 40px;
+      }
+
+
+
+      .introduction__content {
+         flex: 1 1 40%;
+         margin: 10px;
+         padding: 60px 30px 90px;
+      }
+
+      .introduction__title {
+         font-size: 36px;
+         line-height: 40px;
+         font-weight: 600;
+         margin: 0 0 20px 0 !important;
+      }
+
+      .introduction__text {
+         font-size: 18px;
+         line-height: 22px;
+         margin: 0 !important;
+      }
+
+      .introduction__image {
+         flex: 1 1 30%;
+         margin: 60px 60px 60px 20px;
+         position: relative;
+         z-index: 0;
+         box-sizing: border-box;
+      }
+
+      .introduction__image::after {
+         position: absolute;
+         content: '';
+         top: -30px;
+         right: -30px;
+         background-color: var(--mycolor1);
+         width: 60%;
+         height: 60%;
+         z-index: -1;
+         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      }
+
+      .introduction__image img {
+         width: 100%;
+         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+         box-sizing: border-box;
+      }
+
+      .introduction__circles {
+         position: absolute;
+         bottom: 0;
+         right: 0;
+         margin: 20px;
+         display: flex;
+         align-items: center;
+      }
+
+      .introduction__circle {
+         background-color: #fff;
+         border-radius: 50%;
+         margin: 7px;
+         animation: scale-circle infinite linear 1.5s;
+      }
+
+      .introduction__circle_1 {
+         width: 25px;
+         height: 25px;
+      }
+
+      .introduction__circle_2 {
+         width: 20px;
+         height: 20px;
+         animation-delay: .5s;
+      }
+
+      .introduction__circle_3 {
+         width: 15px;
+         height: 15px;
+         animation-delay: 1s;
+      }
+
+      @keyframes scale-circle {
+         0% {
+            transform: scale(1);
+         }
+
+         50% {
+            transform: scale(1.1);
+         }
+
+         100% {
+            transform: scale(1);
+         }
+      }
+
+      @media screen and (max-width: 500px) {
+         .introduction__content {
+            flex: 1 1 100%;
+            padding: 40px 20px;
+         }
+
+         .introduction__image {
+            flex: 1 1 100%;
+            margin: 10px;
+            padding: 0 20px 20px;
+
+         }
+
+         .introduction__image::after,
+         .introduction__image::before {
+            content: none;
+         }
+
+         .introduction__title {
+            font-size: 28px;
+            line-height: 32px;
+            font-weight: 600;
+            margin: 0 0 20px 0 !important;
+         }
+      }
+
+      /*-------description--------*/
+
+      .description {
+         padding: 20px 30px 10px;
+         position: relative;
+         text-align: center;
+      }
+
+      .description__title {}
+
+      .description__body {
+         display: flex;
+         justify-content: space-between;
+         flex-wrap: wrap;
+         margin: 0 -10px;
+         position: relative;
+         align-items: center;
+      }
+
+      .description__content {
+         flex: 1 1 40%;
+         margin: 10px -60px 10px 10px;
+         background-color: #fcfcfc;
+         padding: 20px 30px;
+         z-index: 0;
+         position: relative;
+         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      }
+
+
+
+      .description__content_2 {
+         margin: 10px 10px 10px -60px;
+      }
+
+      .description__item {
+         font-size: 14px;
+         text-align: left;
+      }
+
+      .description__item h3 {
+         font-size: 20px;
+         font-weight: 700 !important;
+         color: var(--mycolor1);
+         margin: 10px 0 !important;
+      }
+
+      .description__image {
+         flex: 1 1 40%;
+         margin: 0px 10px 0 0;
+         display: flex;
+      }
+
+      .description__image_2 {
+         flex: 1 1 40%;
+         margin: 0px 0 0 10px;
+      }
+
+      .description__image img {
+         width: 100%;
+      }
+
+      .description__content .description__circles {
+         justify-content: end;
+      }
+
+      .description__content_2 .description__circles {
+         justify-content: start;
+      }
+
+      .description__circles {
+         display: flex;
+         align-items: center;
+         margin-top: 5px;
+      }
+
+      .description__circle {
+         background-color: var(--mycolor1);
+         border-radius: 50%;
+         margin: 3px;
+         animation: scale-circle infinite linear 1.5s;
+      }
+
+      .description__circle_1 {
+         width: 15px;
+         height: 15px;
+      }
+
+      .description__circle_2 {
+         width: 12px;
+         height: 12px;
+         animation-delay: .5s;
+      }
+
+      .description__circle_3 {
+         width: 9px;
+         height: 9px;
+         animation-delay: 1s;
+      }
+
+      .description__button {}
+
+
+
+      @media screen and (max-width: 500px) {
+         .description {
+            padding: 20px;
+         }
+
+         .description__content {
+            flex: 1 1 100%;
+            margin: 10px;
+         }
+
+         .description__image {
+            flex: 1 1 100%;
+            margin: 10px;
+         }
+      }
+
+      /*------advantages-------*/
+
+      .advantages {
+         padding: 10px 30px;
+         text-align: center;
+      }
+
+      .advantages__title {}
+
+
+      .advantages__body {
+         display: flex;
+         justify-content: space-between;
+         flex-wrap: wrap;
+         margin: 0 -10px;
+      }
+
+      .advantages__item {
+         flex: 1 1 40%;
+         padding: 20px;
+         margin: 10px;
+         text-align: center;
+         background-color: #fcfcfc;
+         border-radius: 15px;
+         position: relative;
+         overflow: hidden;
+         z-index: 0;
+         transition: .5s;
+         font-size: 16px !important;
+         line-height: 18px !important;
+      }
+
+
+
+      .advantages__item a {
+         color: var(--mycolor2);
+      }
+
+      .advantages__item:hover p {
+         color: #fff !important;
+         transition: .5s;
+      }
+
+      .advantages__item:hover h3 {
+         color: #fff !important;
+         transition: .5s;
+      }
+
+      .advantages__item:hover {
+         color: #fff !important;
+         transition: .5s;
+      }
+
+
+
+      .advantages__item::after {
+         position: absolute;
+         content: '';
+         top: 30px;
+         left: calc(50% - 50px);
+         width: 100px;
+         height: 100px;
+         background-color: var(--mycolor1);
+         z-index: -1;
+         transition: .5s;
+         border-radius: 15px;
+      }
+
+      .advantages__item:hover::after {
+         width: 100%;
+         height: 100%;
+         top: 0;
+         left: 0;
+         transition: .5s;
+      }
+
+      .advantages__item h3 {
+         font-size: 22px !important;
+         margin: 10px 0 !important;
+      }
+
+      .advantages__icon {
+         width: 100px;
+         height: 100px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin: 10px auto;
+      }
+
+      .advantages__icon img {
+         width: 60px;
+         height: 60px;
+         transition: .5s;
+      }
+
+      .advantages__item:hover .advantages__icon img {
+         transform: scale(1.1);
+         transition: .5s;
+      }
+
+      @media screen and (max-width: 500px) {
+         .advantages {
+            padding: 20px;
+         }
+
+         .advantages__item {
+            padding: 15px;
+            flex: 1 1 100%;
+         }
+      }
+
+      /**/
+      .table-sil {
+         padding: 1px 30px 15px !important;
+      }
+
+      .table-sil a {
+         color: var(--mycolor1);
+         font-weight: 600;
+      }
+
+      .text__table {
+         margin: 0 !important;
+      }
+
+      .table {
+         width: 100%;
+         border-collapse: collapse !important;
+         display: table !important;
+         margin: 0 !important;
+         outline: 5px solid var(--mycolor1);
+      }
+
+      .table tr {
+         border: 5px solid transparent !important;
+      }
+
+      .table th {
+         font-weight: bold !important;
+         padding: 5px !important;
+         background: var(--mycolor1);
+         border: none !important;
+         border-bottom: 5px solid transparent !important;
+         color: #fff !important;
+         font-size: 16px !important;
+         text-align: left !important;
+         pointer-events: none !important;
+      }
+
+      .table td {
+         padding: 5px !important;
+         border: none !important;
+         border-bottom: 5px solid var(--mycolor1) !important;
+         font-size: 14px;
+      }
+
+      .table-th-list {}
+
+      .table-th-list:hover {
+         background: var(--mycolor2) !important;
+      }
+
+      .table th:hover {
+         border: none !important;
+      }
+
+      @media screen and (max-width: 600px) {
+
+         .table-sil {
+            padding: 10px !important;
+         }
+
+         .table tr {
+            border: 3px solid var(--mycolor1) !important;
+
+         }
+
+         .table th {
+            font-size: 10px !important;
+            background: var(--mycolor1) !important;
+            padding: 3px !important;
+            border-bottom: 3px solid var(--mycolor1) !important;
+         }
+
+         .table td {
+            font-size: 10px !important;
+            line-height: 14px;
+            padding: 3px !important;
+            border-bottom: 5px solid var(--mycolor1) !important;
+         }
+      }
+
+      @media screen and (max-width: 375px) {
+         .table th {
+            font-size: 9px !important;
+         }
+
+         .table td {
+            font-size: 9px !important;
+         }
+      }
+
+      /*-------options--------*/
+
+      .options {
+         padding: 20px 30px 10px;
+         position: relative;
+         text-align: center;
+      }
+
+      .options__title {}
+
+      .options__body {
+         display: flex;
+         justify-content: space-between;
+         flex-wrap: wrap;
+         margin: 0 -10px;
+         position: relative;
+         align-items: center;
+      }
+
+      .options__content {
+         flex: 1 1 45%;
+         margin: 10px 30px 10px 10px;
+         z-index: 0;
+         position: relative;
+         box-sizing: border-box;
+      }
+
+      .options__content_2 {
+         margin: 10px 10px 10px 30px;
+      }
+
+      .options__item {
+         font-size: 14px;
+         text-align: left;
+      }
+
+      .options__item h3 {
+         font-size: 20px;
+         font-weight: 700 !important;
+         color: var(--mycolor1);
+         margin: 10px 0 !important;
+      }
+
+      .options__image {
+         flex: 1 1 45%;
+         margin: 30px 10px 0 0;
+         display: flex;
+         position: relative;
+         z-index: 0;
+         box-sizing: border-box;
+      }
+
+      .options__image::after {
+         content: '';
+         position: absolute;
+         z-index: -1;
+         top: -30px;
+         right: -30px;
+         background-color: var(--mycolor1);
+         width: 50%;
+         height: 50%;
+      }
+
+      .options__image_2 {
+         flex: 1 1 45%;
+         margin: 0 0 30px 10px;
+         display: flex;
+         position: relative;
+         z-index: 0;
+         box-sizing: border-box;
+      }
+
+      .options__image_2::after {
+         content: '';
+         position: absolute;
+         z-index: -1;
+         bottom: -30px;
+         left: -30px;
+         background-color: var(--mycolor1);
+         width: 50%;
+         height: 50%;
+      }
+
+      .options__image img {
+         width: 100%;
+      }
+
+      .options__image_2 img {
+         width: 100%;
+      }
+
+      .options__circles {
+         display: flex;
+         align-items: center;
+         margin: 5px 0;
+      }
+
+      .options__circle {
+         background-color: var(--mycolor1);
+         border-radius: 50%;
+         margin: 0px 3px;
+         animation: scale-circle infinite linear 1.5s;
+         width: 9px;
+         height: 9px;
+      }
+
+      .options__circle_2 {
+         animation-delay: .5s;
+      }
+
+      .options__circle_3 {
+         animation-delay: 1s;
+      }
+
+      .options__button {}
+
+
+
+      @media screen and (max-width: 500px) {
+         .options {
+            padding: 20px;
+         }
+
+         .options__content {
+            flex: 1 1 100%;
+            margin: 10px;
+         }
+
+         .options__image {
+            flex: 1 1 100%;
+            margin: 10px;
+         }
+
+         .options__image_2 {
+            flex: 1 1 100%;
+            margin: 10px 10px 20px 10px;
+         }
+      }
+
+      /*--------delivery------*/
+
+      .delivery {
+         padding: 20px 30px;
+         text-align: center;
+      }
+
+      .delivery__title {}
+
+      .sil-title {}
+
+      .delivery__body {
+         display: flex;
+         justify-content: space-between;
+         flex-wrap: wrap;
+         margin: 0 -10px;
+      }
+
+      .item-delivery {
+         flex: 1 1 15%;
+         margin: 10px;
+         overflow: hidden;
+         text-align: left;
+      }
+
+      .item-delivery__number {
+         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+         -webkit-text-stroke: 2px var(--mycolor1);
+         color: #fff !important;
+         font-size: 75px;
+         line-height: 75px;
+         font-weight: 700;
+         margin: 0;
+         transform: translateX(-40px);
+         transition: .3s;
+      }
+
+      .item-delivery__number span {
+         display: inline-block;
+         transform: translateY(-150px);
+         transition: .2s;
+      }
+
+      .item-delivery:hover .item-delivery__number {
+         transform: translate(0px);
+         transition: .2s;
+      }
+
+      .item-delivery:hover .item-delivery__number span {
+         transform: translate(0px);
+         transition: .3s;
+      }
+
+      .item-delivery__title {
+         font-size: 20px;
+         margin: 10px 0;
+      }
+
+      .item-delivery__text {}
+
+      @media screen and (max-width: 500px) {
+         .item-delivery {
+            flex: 1 1 100%;
+         }
+
+         .delivery {
+            padding: 20px;
+         }
+      }
+
+      /*-----------plus---------*/
+
+      .plus {
+         padding: 20px 30px;
+         text-align: center;
+      }
+
+      .plus__title {}
+
+      .sil-title {}
+
+      .plus__body {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+      }
+
+      .item-plus {
+         background-color: var(--mycolor1);
+         text-align: center;
+         color: #fff;
+         padding: 25px 25px 20px;
+         flex: 1 1 30%;
+         transition: .1s .5s;
+         box-sizing: border-box;
+      }
+
+      .item-plus p {
+         color: #fff !important;
+         font-size: 14px !important;
+         line-height: 16px !important;
+      }
+
+      .item-plus h4 {
+         font-size: 20px;
+         margin: 10px 0;
+         color: #fff;
+         font-weight: 600;
+      }
+
+      .item-plus:nth-child(2) {
+         background: #0791e7;
+         transition: .1s .4s;
+      }
+
+      .item-plus:nth-child(3) {
+         background: #1b9ded;
+         transition: .1s .3s;
+      }
+
+      .item-plus:nth-child(4) {
+         background: #1b9ded;
+         transition: .1s .2s;
+      }
+
+      .item-plus:nth-child(5) {
+         background: var(--mycolor1);
+         transition: .1s .1s;
+      }
+
+      .item-plus:nth-child(6) {
+         background: #0791e7;
+         transition: .1s;
+      }
+
+      .plus__body:hover .item-plus {
+         background: #0791e7;
+         transition: .1s;
+      }
+
+      .plus__body:hover .item-plus:nth-child(2) {
+         background: #1b9ded;
+         transition: .1s .1s;
+      }
+
+      .plus__body:hover .item-plus:nth-child(3) {
+         background: var(--mycolor1);
+         transition: .1s .2s;
+      }
+
+      .plus__body:hover .item-plus:nth-child(4) {
+         background: var(--mycolor1);
+         transition: .1s .3s;
+      }
+
+      .plus__body:hover .item-plus:nth-child(5) {
+         background: #0791e7;
+         transition: .1s .4s;
+      }
+
+      .plus__body:hover .item-plus:nth-child(6) {
+         background: #1b9ded;
+         transition: .1s .5s;
+      }
+
+      .item-plus__icon {}
+
+      .item-plus__title {}
+
+      @media screen and (max-width: 500px) {
+         .item-plus {
+            flex: 1 1 100%;
+         }
+
+         .plus {
+            padding: 20px;
+         }
+      }
+   </style>
+   <div class="main">
+      <section class="introduction">
+         <div class="introduction__body">
+            <div class="introduction__content">
+               <p class="introduction__title">Восьмиконечный крест на цепочке из серебра 925 пробы!</p>
+               <div class="introduction__text">Гарантия качества от украинского производителя, бонусы за каждую покупку
+                  в магазине SilverStar!
+               </div>
+            </div>
+            <div class="introduction__image"><img
+                  src="https://silverstar.com.ua/image/cache/webp/catalog/3591+1057%2030%2032%D0%B3%D1%80/photo_2024-05-07_17-24-15-800x800.webp"
+                  alt=""></div>
+         </div>
+         <div class="introduction__circles">
+            <div class="introduction__circle introduction__circle_1"></div>
+            <div class="introduction__circle introduction__circle_2"></div>
+            <div class="introduction__circle introduction__circle_3"></div>
+         </div>
+      </section>
+      <section class="description">
+         <h2 class="description__title sil-title"><span>Особенности</span> ювелирного комплекта</h2>
+         <div class="description__body">
+            <div class="description__content">
+               <div class="description__item">
+                  <h3>Гарантия качества</h3>
+                  <p>Цепочка бисмарк и восьмиконечный крест изготовлены украинским производителем Харьков Цепь из
+                     серебра 925 пробы с черненым покрытием, имеют пломбу и бирку. Ювелирный комплект и все другие
+                     модели из каталога соответствуют стандартам качества и всем требованиям ДСТУ.
+                  </p>
+               </div>
+               <div class="description__item">
+                  <h3>Параметры цепочки</h3>
+                  <p>Серебряная цепочка изготовлена в стильном и популярном плетении бисмарк. Данный тип плетения
+                     отличается красивыми узорами, очень высокой прочностью и надежностью. Длина цепочки 55-60 см,
+                     ширина - 7,7 мм, вес - 30-32 гр.
+                  </p>
+               </div>
+               <div class="description__circles">
+                  <div class="description__circle description__circle_3"></div>
+                  <div class="description__circle description__circle_2"></div>
+                  <div class="description__circle description__circle_1"></div>
+
+
+               </div>
+            </div>
+            <div class="description__image"><img
+                  src="https://silverstar.com.ua/image/cache/webp/catalog/3591+1057%2030%2032%D0%B3%D1%80/photo_2024-05-07_17-24-14-800x800.webp"
+                  alt=""></div>
+            <div class="description__image description__image_2"><img
+                  src="https://silverstar.com.ua/image/cache/webp/catalog/3591+1057%2030%2032%D0%B3%D1%80/photo_2024-05-07_17-24-17-800x800.webp"
+                  alt=""></div>
+            <div class="description__content description__content_2">
+               <div class="description__item">
+                  <h3>Параметры крестика</h3>
+                  <p>Восьмиконечный православный крест - это стильное украшение, которое защищает и оберегает человека
+                     от зла и всех невзгод. Данная модель креста имеет длину 52 мм без ушка, 65 мм с ушком, ширину 30
+                     мм. Вес крестика - 8,7 гр. На кресте изображено распятие Христа, которое следует носить повернутым
+                     от тела.
+
+                  </p>
+               </div>
+               <div class="description__item">
+                  <h3>Надежная фурнитура</h3>
+                  <p>Крестик оснащен прочным жестким ушком, через которое продевается цепочка, и подвеска надежно
+                     держится. На цепочке установлен прочный замок карабин, который выдерживает любой вес ювелирного
+                     украшения, защищен от случайного открывания.
+
+                  </p>
+               </div>
+               <div class="description__circles">
+                  <div class="description__circle description__circle_1"></div>
+                  <div class="description__circle description__circle_2"></div>
+                  <div class="description__circle description__circle_3"></div>
+               </div>
+            </div>
+         </div>
+         <a class="description__button sil-button" href="https://silverstar.com.ua/ru/reviews-ru/">Отзывы наших
+            клиентов</a>
+      </section>
+      <section class="advantages">
+         <h2 class="advantages__title sil-title"><span>Преимущества</span> интернет-магазина SilverStar</h2>
+         <div class="advantages__body">
+            <div class="advantages__item">
+               <div class="advantages__icon"><img src="https://internetsolution.com.ua/Pictures/silverstar/001-icon.png"
+                     alt=""></div>
+               <h3>Большой ассортимент</h3>
+               <p>В магазине представлен большой выбор мужских серебряных украшений на любой вкус - более 150 моделей.
+                  Здесь можно купить серебряные цепочки, кулоны, крестики, подвески, стильные комплекты, серебряные
+                  браслеты, ладанки, патриотические подвески с Гербом Украины и другие изделия
+
+               </p>
+            </div>
+            <div class="advantages__item">
+               <div class="advantages__icon"><img src="https://internetsolution.com.ua/Pictures/silverstar/002-icon.png"
+                     alt=""></div>
+               <h3>Приемлемые цены</h3>
+               <p>На весь ассортимент товаров действуют доступные цены, без переплат, благодаря тому, что компания
+                  напрямую работает с производителями и не привлекает посредников. За каждую покупку клиентам
+                  насчитываются бонусные баллы, которые можно использовать при следующих заказах. В подарок каждому
+                  заказу идет стильный мешочек для украшений
+
+               </p>
+            </div>
+            <div class="advantages__item">
+               <div class="advantages__icon"><img src="https://internetsolution.com.ua/Pictures/silverstar/003-icon.png"
+                     alt=""></div>
+               <h3>Экспертные консультации</h3>
+               <p>Сотрудники интернет-магазина обладают большим опытом работы и помогают каждому покупателю сделать
+                  оптимальный выбор, в соответствии с индивидуальными запросами. Клиентам предоставляется консультация и
+                  детальная информация о товарах
+
+               </p>
+            </div>
+            <div class="advantages__item">
+               <div class="advantages__icon"><img src="https://internetsolution.com.ua/Pictures/silverstar/004-icon.png"
+                     alt=""></div>
+               <h3>Быстрая доставка</h3>
+               <p>Все серебряные украшения, представленные в каталоге, есть в наличии в магазине, благодаря чему
+                  обработка заказов и отправка товаров осуществляется практически сразу после оформления и согласования.
+                  Срок доставки по Украине составляет считанные дни
+
+               </p>
+            </div>
+         </div>
+
+      </section>
+      <section class="options">
+         <h2 class="options__title sil-title"><span>Преимущества</span> и параметры ювелирного комплекта</h2>
+         <div class="options__body">
+            <div class="options__content">
+               <div class="options__item">
+                  <h3>Высокая прочность</h3>
+                  <div class="options__circles">
+                     <div class="options__circle options__circle_1"></div>
+                     <div class="options__circle options__circle_2"></div>
+                     <div class="options__circle options__circle_3"></div>
+                  </div>
+                  <p>Ювелирный шнурок изготавливается из прочного материала - шелка с нейлоном, и обладает высоким
+                     качеством, долговечностью, устойчивостью к растяжению, разрыву и деформациям. Такой шнурок хорошо
+                     сочетается с крестиком или другой подвеской любого веса.
+
+                  </p>
+               </div>
+               <div class="options__item">
+                  <h3>Серебро 925 пробы</h3>
+                  <div class="options__circles">
+                     <div class="options__circle options__circle_1"></div>
+                     <div class="options__circle options__circle_2"></div>
+                     <div class="options__circle options__circle_3"></div>
+                  </div>
+                  <p>Крестик, а также замок и вставки на шелковом шнурке изготовлены из прочного и высококачественного
+                     серебра 925 пробы. Серебро покрыто слоем чернения, что повышает устойчивость материала к
+                     повреждениям, износу, воздействию внешних негативных факторов, придает ему большей твердости.
+
+                  </p>
+               </div>
+            </div>
+            <div class="options__image"><img
+                  src="https://silverstar.com.ua/image/cache/webp/catalog/YMLTOVAR/35d/IMG35d369d456c90f9cf48cb70047e3ae8c-800x800.webp"
+                  alt=""></div>
+            <div class="options__image_2"><img
+                  src="https://silverstar.com.ua/image/cache/webp/catalog/YMLTOVAR/e9b/IMGe9bfdda3005ea7543f107e7fa44bb0bf-800x800.webp"
+                  alt=""></div>
+            <div class="options__content options__content_2">
+               <div class="options__item">
+                  <h3>Стильный дизайн</h3>
+                  <div class="options__circles">
+                     <div class="options__circle options__circle_1"></div>
+                     <div class="options__circle options__circle_2"></div>
+                     <div class="options__circle options__circle_3"></div>
+                  </div>
+                  <p>Шелковый шнурок с 4 серебряными вставками выглядит очень стильно и является универсальным
+                     аксессуаром для любого кулона, подойдет как мужчине, так и женщине. Крестик в комплекте выполнен в
+                     лаконичном дизайне, имеет ровные линии. На лицевой стороне изображено распятие Христа, на обороте -
+                     надпись «Спаси и Сохрани».
+
+
+                  </p>
+               </div>
+               <div class="options__item">
+                  <h3>Параметры изделий</h3>
+                  <div class="options__circles">
+                     <div class="options__circle options__circle_3"></div>
+                     <div class="options__circle options__circle_3"></div>
+                     <div class="options__circle options__circle_3"></div>
+                  </div>
+                  <p>Ювелирный шнурок имеет длину 55-60 см, ширину 8,5 мм, вес серебряных элементов на шнурке - 7 г,
+                     длина вставки - 8 мм. Шнурок оснащен надежной застежкой карабин. Вес крестика составляет 16,9 гр,
+                     длина с ушком 66 мм, длина без ушка - 48 мм, ширина - 36 мм.
+
+
+                  </p>
+               </div>
+
+            </div>
+         </div>
+
+      </section>
+      <section class="plus">
+         <h2 class="plus__title sil-title"><span>Почему</span> покупатели выбирают интернет-магазин SilverStar</h2>
+         <div class="plus__body">
+            <div class="plus__item item-plus">
+               <div class="item-plus__icon">
+                  <img src="https://internetsolution.com.ua/Pictures/silverstar/005-icon.png" alt="">
+               </div>
+               <h4 class="item-plus__title">Гарантия качества</h4>
+               <p>Все украшения изготавливаются из серебра 925 пробы проверенными и надежными украинскими
+                  производителями. На изделиях стоит проба, есть ярлык производителя и пломба. Товары из серебра
+                  соответствуют высоким стандартам качества и требованиям ДСТУ
+               </p>
+            </div>
+            <div class="plus__item item-plus">
+               <div class="item-plus__icon">
+                  <img src="https://internetsolution.com.ua/Pictures/silverstar/002-icon.png" alt="">
+               </div>
+               <h4 class="item-plus__title">Выгодные условия</h4>
+               <p>Компания SilverStar ведет прямое сотрудничество с производителями и не использует услуги посредников.
+                  Это позволяет поддерживать лояльную ценовую политику и обеспечивать покупателям максимально выгодные
+                  условия покупок, без наценок и переплат
+               </p>
+            </div>
+            <div class="plus__item item-plus">
+               <div class="item-plus__icon">
+                  <img src="https://internetsolution.com.ua/Pictures/silverstar/006-icon.png" alt="">
+               </div>
+               <h4 class="item-plus__title">Скидки и подарки</h4>
+               <p> За каждую покупку клиентам начисляются бонусные баллы, которые позже можно использовать при следующих
+                  заказах. Если вы найдете аналогичный товар дешевле, сообщите нам об этом, и мы предложим вам приятную
+                  скидку. При заказе любого украшения, вы получаете бесплатно стильный подарочный мешочек
+
+               </p>
+            </div>
+            <div class="plus__item item-plus">
+               <div class="item-plus__icon">
+                  <img src="https://internetsolution.com.ua/Pictures/silverstar/001-icon.png" alt="">
+               </div>
+               <h4 class="item-plus__title">Широкий выбор</h4>
+               <p>В каталоге интернет-магазина представлено более 150 наименований серебряных мужских украшений на любой
+                  вкус. В ассортименте есть цепочки, браслеты, крестики, кулоны, ладанки, подвесы, патриотические кулоны
+                  Герб Украины, шелковые шнурки с серебряными вставками и замком, стильные ювелирные комплекты на любой
+                  вкус
+
+               </p>
+            </div>
+            <div class="plus__item item-plus">
+               <div class="item-plus__icon">
+                  <img src="https://internetsolution.com.ua/Pictures/silverstar/003-icon.png" alt="">
+               </div>
+               <h4 class="item-plus__title">Профессиональный сервис</h4>
+               <p>Специалисты онлайн-магазина обеспечивают вежливое и профессиональное обслуживание покупателей. Каждый
+                  клиент может получить детальную информацию о товарах, консультацию по своим вопросам, экспертную
+                  помощь в выборе украшения, в зависимости от индивидуальных предпочтений
+
+               </p>
+            </div>
+            <div class="plus__item item-plus">
+               <div class="item-plus__icon">
+                  <img src="https://internetsolution.com.ua/Pictures/silverstar/004-icon.png" alt="">
+               </div>
+               <h4 class="item-plus__title">Оперативная доставка</h4>
+               <p>Мы ценим ваше время и не заставляем долго ждать своих заказов. Благодаря наличию всех товаров в
+                  магазине, отправка осуществляется в минимальные сроки. За считанные дни вы получите свой заказ в любом
+                  уголке Украины
+
+               </p>
+            </div>
+         </div>
+         <a class="advantages__button sil-button"
+            href="https://silverstar.com.ua/ru/index.php?route=information/contact">Контактная информация</a>
+      </section>
+      <section class="table-sil">
+         <h2 class="table-sil__table sil-title"><span>Магазин</span> рекомендует популярные серебряные украшения</h2>
+         <table class="table" itemscope="" itemtype="http://schema.org/Table">
+            <tbody>
+               <tr class="table-th-list">
+                  <th itemprop="name">Название</th>
+                  <th itemprop="description">Вес цепочки</th>
+                  <th itemprop="description">Размер цепочки</th>
+                  <th itemprop="description">Вес крестика</th>
+                  <th itemprop="description">Размер крестика (без ушка)</th>
+               </tr>
+               <tr>
+                  <td itemprop="name"><a
+                        href="https://silverstar.com.ua/ru/muzhskoj-komplekt-s-cherneniem-925-proba-krestik-s-cepochkoj-na-sheyu/">Мужской
+                        комплект крестик с цепочкой на шею</a></td>
+                  <td itemprop="description">70 г</td>
+                  <td itemprop="description">60 см</td>
+                  <td itemprop="description">15 г</td>
+                  <td itemprop="description">47*34 мм</td>
+               </tr>
+               <tr>
+                  <td itemprop="name"><a
+                        href="https://silverstar.com.ua/ru/massivnyj-serebryanyj-komplekt-krestik-i-cepochka-925-proba-1/">Массивный
+                        серебряный комплект крестик и цепочка</a></td>
+                  <td itemprop="description">70 г</td>
+                  <td itemprop="description">60 см</td>
+                  <td itemprop="description">20 г</td>
+                  <td itemprop="description">54*37 мм</td>
+               </tr>
+               <tr>
+                  <td itemprop="name"><a
+                        href="https://silverstar.com.ua/ru/serebryanyj-komplekt-cepochka-s-krestikom-serebro-925-proby-chernenoe-krest-cep-60-sm/">Комплект
+                        цепочка с крестиком серебро 925 пробы</a></td>
+                  <td itemprop="description">30-32 г</td>
+                  <td itemprop="description">55-60 см</td>
+                  <td itemprop="description">7,5 г</td>
+                  <td itemprop="description">38*28 мм</td>
+               </tr>
+               <tr>
+                  <td itemprop="name"><a
+                        href="https://silverstar.com.ua/ru/originalnyj-serebryanyj-komplekt-krest-s-cepochkoj-serebro-925-proby/">Оригинальный
+                        серебряный комплект крест с цепочкой</a></td>
+                  <td itemprop="description">30-32 г</td>
+                  <td itemprop="description">55-60 см</td>
+                  <td itemprop="description">8,4 г</td>
+                  <td itemprop="description">42*20 мм</td>
+               </tr>
+            </tbody>
+         </table>
+      </section>
+      <section class="delivery">
+         <h2 class="delivery__title sil-title"><span>Алгоритм</span> заказа в интернет-магазине SilverStar</h2>
+         <div class="delivery__body">
+            <div class="delivery__item item-delivery">
+               <p class="item-delivery__number"><span>0</span>1</p>
+               <h4 class="item-delivery__title">1 этап</h4>
+               <p class="item-delivery__text">Выбор товара в каталоге или связь с менеджером для консультации.
+               </p>
+            </div>
+            <div class="delivery__item item-delivery">
+               <p class="item-delivery__number"><span>0</span>2</p>
+               <h4 class="item-delivery__title">2 этап</h4>
+               <p class="item-delivery__text"> Оформление заказа через сайт, по телефону или в мессенджерах.
+               </p>
+            </div>
+            <div class="delivery__item item-delivery">
+               <p class="item-delivery__number"><span>0</span>3</p>
+               <h4 class="item-delivery__title">3 этап</h4>
+               <p class="item-delivery__text">Оплата по реквизитам или наложенным платежом.
+               </p>
+            </div>
+            <div class="delivery__item item-delivery">
+               <p class="item-delivery__number"><span>0</span>4</p>
+               <h4 class="item-delivery__title">4 этап</h4>
+               <p class="item-delivery__text">Самовывоз или доставка Новой почтой, Укрпочтой по Украине.</p>
+            </div>
+         </div>
+         <a class="advantages__button sil-button" href="https://silverstar.com.ua/ru/dostavka-y-oplata/">Информация о
+            доставке</a>
+      </section>
+   </div>
+</body>
+
+</html>
